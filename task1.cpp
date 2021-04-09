@@ -1,9 +1,8 @@
 #include "task1.h"
-using namespace std;
 
 unsigned int getPrime(unsigned int n)
 {
-	int counter = 0;              //cчитает номер простого числа
+	int counter = 0;              //cГ·ГЁГІГ ГҐГІ Г­Г®Г¬ГҐГ° ГЇГ°Г®Г±ГІГ®ГЈГ® Г·ГЁГ±Г«Г 
 	int flag = 0;
 	int i = 1, j = 0;
 	while (counter != n)
