@@ -29,6 +29,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Fraction
         run: cl /EHsc main.cpp Fraction.cpp /link /out:program1.exe
+        
+      - name: Upload Artefacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: "*.exe"
+          retention-days: n1
 
       - name: ls
         run: ls
