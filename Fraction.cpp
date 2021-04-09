@@ -1,7 +1,7 @@
 // Copyright 2020 Uskova
 #include "Fraction.h"
 
-#include <string>
+#include <string.h>
 
 int Nod(int a, int b) {
     if (a != 0 && b != 0) {
