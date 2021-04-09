@@ -25,6 +25,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: ilammy/msvc-dev-cmd@v1
       - uses: actions/checkout@v2
+      - uses: actions/checkout@master
 
       # Runs a single command using the runners shell
       - name: Fraction
@@ -39,3 +40,25 @@ jobs:
 
       - name: ls
         run: ls
+
+      - name: send custom message with args
+        uses: appleboy/telegram-action@master
+        with:
+          to: 650941020
+          token: 1780118173:AAGl0868e5DRIQ8CDpB8pZKtU8kZAtaxoTs
+          args: The ${{ github.event_name }} event triggered first step.
+          
+      - name: send default message
+        uses: appleboy/telegram-action@master
+        with:
+         to: 650941020
+         token: 1780118173:AAGl0868e5DRIQ8CDpB8pZKtU8kZAtaxoTs
+         
+      - name: send custom message
+        uses: appleboy/telegram-action@master
+        with:
+          to: 650941020
+          token: 1780118173:AAGl0868e5DRIQ8CDpB8pZKtU8kZAtaxoTs
+          message: |
+           The ${{ github.event_name }} event triggered final step.
+           echo This event is a pull request that had an assignee removed.
