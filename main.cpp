@@ -1,28 +1,25 @@
 // Copyright 2020 Uskova
 
 #include "Fraction.h"
-#include <iostream>
+#include <stdio.h>
 
 int main() {
-    Fraction a(1, 2);  // 1/2
+    int n1 = 0;
+    int n2 = 0;
+    printf("Enter first number");
+    scanf("%d", &n1);
+    printf("Enter second number");
+    scanf("%d", &n2);
+    Fraction a(n1, n2);  // 1/2
     Fraction b(a);
     Fraction c;
-    std::cout << c.getValue() << std::endl;  // 0
     c = a + b;
-    std::cout << c.getValue() << std::endl;  // 1
-    Fraction b1(-1, 2);
-    c = a + b1;
-    std::cout << c.getValue() << std::endl;  // 0
-    Fraction a2(1, 5);
-    Fraction b2(1, 2);
+    printf("+: %s", c.getValue());
     Fraction c2;
-    c2 = a2 / b2;
-    std::cout << c2.getValue() << std::endl;
-    Fraction a3(1, 2);
-    Fraction b3(1, 2);
+    c2 = n1 / n2;
+    printf("/: %s", c2.getValue());
     Fraction c3;
-    c3 = a3 - b3;
-    std::cout << c3.getValue() << std::endl;
-    std::cout << c3.getNumerator() << " , " << c3.getDenominator() << std::endl;
+    c3 = n1 - n2;
+    printf("-: %s", c3.getValue());
     return 0;
 }
