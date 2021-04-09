@@ -18,18 +18,19 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: ilammy/msvc-dev-cmd@v1
       - uses: actions/checkout@v2
       - uses: actions/checkout@master
 
       # Runs a single command using the runners shell
       - name: Fraction
-        run: cl /EHsc main.cpp Fraction.cpp /link /out:program1.exe
+        run: |
+          sudo apt-get install mingw-w64
+          x86_64-w64-mingw32-gcc -o main.exe main.cpp Fraction.cpp
         
       - name: Upload Artefacts
         uses: actions/upload-artifact@v2
@@ -41,18 +42,19 @@ jobs:
       - name: ls
         run: ls
 
-          
       - name: send default message
         uses: appleboy/telegram-action@master
         with:
          to: ${{ secrets.TELEGRAM_TO }}
          token: ${{ secrets.TELEGRAM_TOKEN }}
+         message: |
+          Send me your file
          
-      - name: send custom message
+      - uses: actions/checkout@master
+      - name: send photo message
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-           The ${{ github.event_name }} event triggered final step.
-           echo This event is a pull request that had an assignee removed.
+         to: ${{ secrets.TELEGRAM_TO }}
+         token: ${{ secrets.TELEGRAM_TOKEN }}
+         message: Send file message
+         document: main.exe
