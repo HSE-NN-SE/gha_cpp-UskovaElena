@@ -7,6 +7,6 @@ using namespace std;
 int main()
 {
 	unsigned int n = 0;
-	cin >> n;
-	cout << getPrime(n);
+	scanf("%d", &n);
+	printf("%d", getPrime(n));
 }
