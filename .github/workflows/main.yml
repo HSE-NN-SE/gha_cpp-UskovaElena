@@ -30,7 +30,7 @@ jobs:
       - name: Fraction
         run: |
           sudo apt-get install mingw-w64
-          x86_64-w64-mingw32-gcc -o main.exe main.cpp Fraction.cpp
+          x86_64-w64-mingw32-gcc -o main1.exe main1.cpp task1.cpp
         
       - name: Upload Artefacts
         uses: actions/upload-artifact@v2
@@ -57,4 +57,4 @@ jobs:
          to: ${{ secrets.TELEGRAM_TO }}
          token: ${{ secrets.TELEGRAM_TOKEN }}
          message: Send file message
-         document: main.exe
+         document: main1.exe
