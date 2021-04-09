@@ -28,7 +28,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Fraction
-        run: cl /EHsc main.cpp
+        run: cl /EHsc main.cpp Fraction.cpp /link /out:program1.exe
 
       - name: ls
         run: ls
