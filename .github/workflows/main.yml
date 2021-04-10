@@ -52,4 +52,4 @@ jobs:
          to: ${{ secrets.TELEGRAM_TO }}
          token: ${{ secrets.TELEGRAM_TOKEN }}
          message: Hi! This is your .exe file!
-         document: D:\a\gha_cpp-UskovaElena\gha_cpp-UskovaElena\main1.exe
+         document: ./main1.exe
