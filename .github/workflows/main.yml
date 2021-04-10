@@ -45,8 +45,6 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/checkout@v2
       - name: send file message
         uses: appleboy/telegram-action@master
         with:
