@@ -44,12 +44,17 @@ jobs:
   telegram:
     needs: build
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+    steps: 
+    
+      - name: Download
+        uses: actions/download-artifact@v2
+        with:
+          name: artifact
+    
       - name: send file message
         uses: appleboy/telegram-action@master
         with:
          to: ${{ secrets.TELEGRAM_TO }}
          token: ${{ secrets.TELEGRAM_TOKEN }}
          message: Hi! This is your .exe file!
-         document: ./main1.exe
+         document: main1.exe
